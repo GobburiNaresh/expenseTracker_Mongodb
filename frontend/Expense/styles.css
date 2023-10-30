@@ -1,0 +1,149 @@
+/* Reset default margin and padding for common elements */
+body, h1, h3, ul, p, header, label, input, select, button {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+body {
+    background-color: hsla(172, 36%, 63%, 0.176);
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #42433b;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+/* Expense form styles */
+#expense {
+    background-color: hsl(196, 87%, 52%);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button,
+.btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Table styles */
+table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.custom-table th,
+table.custom-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+table.custom-table th {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.page-item {
+    list-style: none;
+    margin: 0 5px;
+}
+
+.page-link {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Download button styles */
+#download-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#downloadexpense {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.download-icon {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+/* Additional button styles */
+input[type="button"] {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+}
+
+input#edit[type="button"] {
+    background-color: #0fac1f;
+}
+
+input#delete[type="button"] {
+    background-color: #f60f13;
+}
+
+input#save[type="button"] {
+    background-color: #0d2ae7;
+}

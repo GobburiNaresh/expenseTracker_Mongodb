@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpenseTracker</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Expense Tracker</h1>
+    </header>
+    <h1 id="premium" style="color: red;display: flex; justify-content: center; align-items: center"></h1>
+    <form onsubmit="ExpenseTracker(event)" method="post">
+        <div id="expense" >
+            <label for="expenseAmount">Choose Expense Amount:</label>
+            <input type="number" id="amount" class="amount" name="amount"><br>
+            <label for="description">Choose destription:</label>
+            <input type="text" id="description" class="description" name="description"><br>
+            <label for="category">Choose a category:</label>
+            <select id="category" name="category">
+                <option value="fuel">Fuel</option>
+                <option value="food">Food</option>
+                <option value="movie">Movie</option>
+                <option value="parking">Parking</option>
+                <option value="fees">Fees</option>
+                <option value="rent">Rent</option>
+                <option value="subscription">Subscription</option>
+            </select>
+            <div class="button-container">
+                <button id="rzp-button1" type="submit" class="button">BUY PREMIUM</button>
+                <button id="btn" type="submit" class="btn" >Add Expense</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table custom-table">
+        <thead>
+            <tr>
+                <th style="width: 5%;">No.</th>
+                <th style="width: 10%;">amount</th>
+                <th style="width: 20%;">description</th>
+                <th style="width: 30%;">category</th>
+                <!-- <th style="width: 40%;">delete/update</th> -->
+            </tr>
+        </thead>
+        <tbody id="listOfExpenses">
+        </tbody>
+    </table>
+            
+        <!-- </ul> -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item" id="prevPageBtn">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item disabled">
+                  <span class="page-link">Page <span id="currentPage">1</span></span>
+              </li>
+                <li class="page-item" id="nextPageBtn">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+              
+            </ul>
+        </nav>
+    </div>
+    <div id="download-button-container">
+        <button onclick="download()" id="downloadexpense">Download
+            <span class="download-icon">&#8681;</span>
+        </button>
+    </div>
+    <button id="logout-button">Logout</button>
+
+            
+    <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
+    <script src="./expense.js"></script>
+    
+</body>
+</html>

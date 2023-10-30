@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="expense">
+        <h1>Expense Tracker</h1>
+    </div>
+    <form onSubmit="signup(event)">
+        <label for="name">Enter your Name:</label>
+        <input type="text" id="name" name="name" required/>
+        <label for="email">Enter your Email:</label>
+        <input type="email" id="email" name="email" >
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required/>
+        <button type="submit" class="btn">Sign Up</button>
+        <div class="center">
+        <a href="../Login/login.html" class="login-button">Login</a>
+        </div>
+        <h5 class="login-text">You already have an account Please login?... </h5>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
+    <script>
+        async function signup(event) {
+            try{
+                event.preventDefault();
+                const name = event.target.name.value;
+                const email = event.target.email.value;
+                const password = event.target.password.value;
+
+                const signUpDetails = {
+                    name: name,
+                    email: email,
+                    password: password
+                };
+                console.log(signUpDetails);
+                const response = await axios.post("http://localhost:3000/user/signup",signUpDetails)
+                    if(response.status === 201){
+                        window.location.href="../Login/login.html";
+
+                    }else{
+                        throw new Error('Failed to login');
+                    }
+            }
+            catch(err){
+                document.body.innerHTML += `<div style="color:red;">${err}<div>`;
+            }
+
+        }
+
+    </script>
+
+    
+</body>
+</html>

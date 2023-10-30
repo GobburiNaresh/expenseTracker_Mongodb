@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="expense">
+        <h1>Expense Tracker</h1>
+    </div>
+    <form onSubmit="login(event)"  method="post">
+        <label for="email">Enter your Email:</label>
+        <input type="email" id="email" name="email" >
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" >
+        <button type="submit" class="btn">Login</button>
+        <h5 class="forgot-text">If you forgot your password please click on forgot password button</h5>
+        <div class="center">
+        <button type="submit" class="forgot" onclick="forgotpassword()"> Forgot password</button>
+        </div>
+        <h5 class="login-text">If you dont have an account please - signup now</h5>
+        <div class="center">
+        <a href="../Signup/signup.html" class="signup-button">signup</a>
+        </div>
+        
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
+    <script>
+        async function login(event) {
+            try{
+                event.preventDefault();
+                const email = event.target.email.value;
+                const password = event.target.password.value;
+
+                const LoginDetails = {
+                    email: email,
+                    password: password
+                };
+                console.log(LoginDetails);
+                const response = await axios.post("http://localhost:3000/user/login",LoginDetails)
+                    if(response.status === 200){
+                       localStorage.setItem('token',response.data.token);
+                       localStorage.setItem('userEmail',response.data.userEmail);
+                       window.location.href="../Expense/expense.html";
+                    }else{
+                        throw new Error('failed to login');
+                    }
+            }
+            catch(err){
+                document.body.innerHTML += `<div style="color:red;">${err.message}</div>`;
+            }
+
+        }
+        function forgotpassword() {
+    window.location.href = "../ForgotPassword/forgot.html"
+}
+
+    </script>
+
+    
+</body>
+</html>
